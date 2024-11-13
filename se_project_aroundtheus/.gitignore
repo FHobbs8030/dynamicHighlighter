@@ -1,0 +1,4 @@
+.DS_Store
+images/card-images/Cash Brooks.jfif
+git commit -m "Remove unwanted files and update .gitignore"
+

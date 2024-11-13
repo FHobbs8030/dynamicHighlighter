@@ -1,0 +1,49 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #000;
+  max-width: 1280px;
+  margin: 0 auto;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+}
+
+.page__content {
+  margin: 0 auto;
+  max-width: 880px;
+  color: #fff;
+}
+
+@media screen and (max-width: 900px) {
+  .page__content {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .page__content {
+    max-width: 585px;
+    margin: 0 10px 0px 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page__content {
+    max-width: 282px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .page__content {
+    max-width: 282px;
+    margin: 0;
+  }
+}

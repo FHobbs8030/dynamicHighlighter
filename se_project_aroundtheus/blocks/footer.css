@@ -1,0 +1,39 @@
+.footer {
+  display: flex;
+  align-items: center;
+  margin: 66px 0px 60px 0px;
+}
+
+.footer__title {
+  margin: 0;
+  color: #545454;
+  width: 318px;
+  font-family: "Inter" Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  text-align: left;
+}
+
+@media screen and (max-width: 800px) {
+  .footer {
+    margin: 48px 0px 36px 0px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .footer__title {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    max-width: 282px;
+  }
+
+  .footer__title {
+    margin: 0;
+  }
+}
