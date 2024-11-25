@@ -27,22 +27,32 @@ class DynamicHighlighter {
   provideDocumentSemanticTokens(document) {
     const builder = new vscode.SemanticTokensBuilder();
     const text = document.getText();
-    const titlePattern = /title/i;
-    const variablePattern = /\b(let|var|const) (\w+)/g;
+    const titlePattern = /\btitle\b/gi; // Match 'title' as a whole word
+    const variablePattern = /\b(let|var|const)\s+(\w+)/g;
 
     // Example: Apply 'titleRelated' token to matches
     let match;
     while ((match = titlePattern.exec(text))) {
       const start = document.positionAt(match.index);
       const end = document.positionAt(match.index + match[0].length);
-      builder.push(new vscode.Range(start, end), "titleRelated");
+      builder.push(
+        start.line,
+        start.character,
+        match[0].length,
+        "titleRelated"
+      );
     }
 
-    // Apply 'variable' token to variables
+    // Apply 'variable' token to variable names (not the declaration keywords)
     while ((match = variablePattern.exec(text))) {
-      const start = document.positionAt(match.index);
+      const start = document.positionAt(match.index + match[1].length + 1); // Skip the keyword and whitespace
       const end = document.positionAt(match.index + match[0].length);
-      builder.push(new vscode.Range(start, end), "variable");
+      builder.push(
+        start.line,
+        start.character,
+        end.character - start.character,
+        "variable"
+      );
     }
 
     return builder.build();
